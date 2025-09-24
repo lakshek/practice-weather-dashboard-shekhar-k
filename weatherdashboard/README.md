@@ -25,7 +25,8 @@ weatherdashboard/
 #### 1. WeatherService  
 - Contains the static `fetchWeather(city)` method.
 - Makes HTTP request to OpenWeatherMap using `RestTemplate`.
-- Holds the API key as a `static final String`.  
+- Holds the API key in an environmental variable `OWM_API_KEY`.
+- API key is for **https://openweathermap.org/**
 
 #### 2. WeatherController
 - A Spring REST `/api/weather/{city}` endpoint.  
@@ -57,19 +58,23 @@ weatherdashboard/
 
 1. Open the `ConsoleWeatherApp.java` in IDE.
 2. Run it as a Java application.
-3. A menu will be displayed.  
-`Weather Dashboard
+3. If *"❌ Missing API key. Set OWM_API_KEY environment variable and rerun."* message is displayed, set the environment variable with YOUR API key for https://openweathermap.org/ and rerun. 
+4. A menu will be displayed.
+
+```
+Weather Dashboard
 >1. Chicago
 >2. London
 >3. Paris
 >4. Melbourne
 >5. Exit  
-Choose an option:`  
-4. Enter the number of the city to display the details.
+Choose an option:
+```  
+5. Enter the number of the city to display the details.
 
 ## Notes
 
-- The API key is hardcoded in `WeatherService`.
+- The API key is in an environmental variable.
 - The console and API use the same `WeatherService.fetchWeather(city)` method to fetch weather.
 - `RestTemplate` handles the HTTP request.
 
